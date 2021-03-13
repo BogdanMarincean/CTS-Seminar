@@ -9,6 +9,7 @@ public abstract class Aplicant{
 	protected String[] denumiriProiecte;
 	
 	
+	
 	public String getNume() {
 		return nume;
 	}
@@ -27,11 +28,11 @@ public abstract class Aplicant{
 	public void setVarsta(int varsta) {
 		this.varsta = varsta;
 	}
-	public void statut(){
-		if(punctaj>80)
-			System.out.println("Aplicantul "+nume+" "+prenume+" a fost acceptat.");
-		else
-			System.out.println("Aplicantul "+nume+" "+prenume+" nu a fost acceptat.");
+	public void displayStateInProject(Proiect proiect){
+		StringBuilder builder = new StringBuilder();
+		builder.append("Aplicantul ").append(nume).append(" ").append(prenume);
+		builder.append(punctaj>proiect.getPragAcceptare() ? " a fost acceptat." : " nu a fost acceptat.");
+		System.out.println(builder.toString());
 		}
 	public int getPunctaj() {
 		return punctaj;
@@ -39,9 +40,6 @@ public abstract class Aplicant{
 	public void setPunctaj(int punctaj) {
 		this.punctaj = punctaj;
 	}
-	
-	
-
 	
 	public Aplicant() {
 		super();
@@ -64,5 +62,7 @@ public abstract class Aplicant{
 		this.nr_proiecte = nr_proiecte;
 		this.denumiriProiecte=denumiriProiecte;
 	}
+	
+	public abstract float getFinantare();
 
 }
