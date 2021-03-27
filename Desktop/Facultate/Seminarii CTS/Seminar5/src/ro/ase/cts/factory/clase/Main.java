@@ -9,8 +9,12 @@ public class Main {
 		PersonalMedical medic1 = factory.create(TipPersonal.MEDIC, "Ionescu", 5000);
 		PersonalMedical asistent1 = factory.create(TipPersonal.ASISTENT, "Popescu", 3000);
 		
+		
 		System.out.println(medic1);
 		System.out.println(asistent1);
-	}
+		
+		PersonalMedical medic2 = FactorySingleton.getInstance().create(TipPersonal.MEDIC, "Petrica", 12345);
+
+        System.out.println(medic2);	}
 
 }
