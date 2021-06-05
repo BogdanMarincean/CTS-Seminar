@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import ro.ase.cts.clase.Grupa;
 import ro.ase.cts.mock.StudentDummy;
+import ro.ase.cts.mock.StudentStub;
 
 public class GrupaTestWithMocks {
 	Grupa grupa;
@@ -44,6 +45,15 @@ public class GrupaTestWithMocks {
 	public void adaugaStudentExceptie() {
 			StudentDummy studentDummy = new StudentDummy();
 			grupa.adaugaStudent(studentDummy);
+	}
+	
+	
+	@Test
+	public void testGetPromovabilitate() {
+		Grupa grupa = new Grupa(1088);
+		StudentStub studentStub = new StudentStub();
+		grupa.adaugaStudent(studentStub);
+		assertEquals(0, grupa.getPromovabilitate(), 0.01);
 	}
 
 }
